@@ -41,7 +41,7 @@ steps:
   inputs:
     buildType: 'current'
     downloadType: 'specific'
-    itemPattern: '**.war'
+    itemPattern: 'target/ROOT.war'
     downloadPath: '$(System.ArtifactsDirectory)'
     artifactName: 'target'
 - task: PublishBuildArtifacts@1
