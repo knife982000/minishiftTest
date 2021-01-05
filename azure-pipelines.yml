@@ -43,6 +43,7 @@ steps:
     downloadType: 'specific'
     itemPattern: '**.war'
     downloadPath: '$(System.ArtifactsDirectory)'
+    artifactName: 'target'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
