@@ -30,6 +30,7 @@ steps:
       echo 'Hello world'
       echo $( pwd ) 
       echo $( ls -R )
+      cp target/ROOT.war /home/vsts/work/1/a
 
 #- task: DownloadFileshareArtifacts@1
 #  inputs:
