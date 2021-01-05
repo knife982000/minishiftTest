@@ -21,8 +21,25 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
-- task: DownloadFileshareArtifacts@1
+- task: Bash@3
   inputs:
-    filesharePath: 'target/ROOT.war'
-    artifactName: 'compiled'
+    targetType: 'inline'
+    script: |
+      # Write your commands here
+      
+      echo 'Hello world'
+      echo $( pwd ) 
+      echo $( ls -R )
+
+#- task: DownloadFileshareArtifacts@1
+#  inputs:
+#    filesharePath: 'target/ROOT.war'
+#    artifactName: 'compiled'
+#    downloadPath: '$(System.ArtifactsDirectory)'
+
+- task: DownloadBuildArtifacts@0
+  inputs:
+    buildType: 'current'
+    downloadType: 'specific'
+    itemPattern: '**.war'
     downloadPath: '$(System.ArtifactsDirectory)'
