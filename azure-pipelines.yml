@@ -31,19 +31,19 @@ steps:
       echo $( pwd ) 
       echo $( ls -R )
 
-#- task: DownloadFileshareArtifacts@1
-#  inputs:
-#    filesharePath: 'target/ROOT.war'
-#    artifactName: 'compiled'
-#    downloadPath: '$(System.ArtifactsDirectory)'
-
-- task: DownloadBuildArtifacts@0
+- task: DownloadFileshareArtifacts@1
   inputs:
-    buildType: 'current'
-    downloadType: 'specific'
-    itemPattern: 'target/ROOT.war'
-    downloadPath: '$(System.ArtifactsDirectory)'
+    filesharePath: 'ROOT.war'
     artifactName: 'target'
+    downloadPath: '$(System.ArtifactsDirectory)'
+
+#- task: DownloadBuildArtifacts@0
+#  inputs:
+#    buildType: 'current'
+#    downloadType: 'specific'
+#    itemPattern: 'target/ROOT.war'
+#    downloadPath: '$(System.ArtifactsDirectory)'
+#    artifactName: 'target'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
